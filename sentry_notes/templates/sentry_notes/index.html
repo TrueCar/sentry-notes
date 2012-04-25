@@ -1,0 +1,25 @@
+{% extends "sentry/groups/details.html" %}
+
+{% load i18n %}
+{% load sentry_helpers %}
+
+{% block title %}{% trans "Notes" %} | {{ block.super }}{% endblock %}
+
+{% block inner %}
+
+    <div id="groupnotes" class="module">
+        <form id="makegroupnotes" method="POST" action="">
+            {% csrf_token %}
+            <textarea rows="5" cols="60" name="note" style="width: 100%; clear: both;">{{ notation.note }}</textarea>
+
+            {% if request.user.is_authenticated %}
+                <button type="submit">{% trans "Save Notes" %}</button>
+            {% endif %}
+
+            {% if notation.modified_when %}
+                Last Modified by <em>{{  notation.modified_by }}</em>, {{ notation.modified_when|timesince }}
+            {% endif %}
+        </form>
+    </div>
+
+{% endblock %}
