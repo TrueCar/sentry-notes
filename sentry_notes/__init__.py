@@ -29,13 +29,16 @@ class NotesPlugin(Plugin):
                 'notation': note,
             })
 
+    def before_events(self, request, event_list, **kwargs):
+        # Called before tags are applied
+        notes = Notation.objects.filter(group__in=event_list)
+        self._tagged = set(x.group_id for x in notes if x.note.strip())
+
     def tags(self, request, group, tag_list, **kwargs):
-        try:
-            # "group" can be an Event, not just a Group
-            if isinstance(group, Group) and group.notation.note.strip():
-                tag_list.append(u"\u270D")
-        except Notation.DoesNotExist:
-            pass
+        # "group" can be an Event, not just a Group
+        if isinstance(group, Group) and group.pk in self._tagged:
+            tag_list.append(u"\u270D")
+
         return tag_list
 
 
