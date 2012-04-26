@@ -5,6 +5,8 @@ from django.core.context_processors import csrf
 
 from .models import Notation, Group
 
+__version__ = "0.1"
+
 class NotesPlugin(Plugin):
     title = 'Notes'
 

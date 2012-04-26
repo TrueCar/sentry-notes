@@ -1,0 +1,3 @@
+include setup.py README.rst MANIFEST.in LICENSE.txt 
+recursive-include sentry_notes/templates *.html
+global-exclude *~
