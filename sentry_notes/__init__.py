@@ -7,8 +7,12 @@ from .models import Notation, Group
 
 __version__ = "0.1"
 
+
 class NotesPlugin(Plugin):
     title = 'Notes'
+    version = __version__
+    author = 'TrueCar Dev Team'
+    author_url = 'https://github.com/TrueCar/sentry-notes'
 
     def panels(self, request, group, panel_list, **kwargs):
         panel_list.append((self.get_title(), self.get_url(group)))
@@ -43,4 +47,3 @@ class NotesPlugin(Plugin):
 
 
 register(NotesPlugin)
-
