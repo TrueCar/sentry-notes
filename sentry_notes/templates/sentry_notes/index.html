@@ -14,6 +14,8 @@
 
             {% if request.user.is_authenticated %}
                 <button type="submit">{% trans "Save Notes" %}</button>
+            {% else %}
+                You must login first to edit notes.
             {% endif %}
 
             {% if notation.modified_when %}
