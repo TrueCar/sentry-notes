@@ -1,7 +1,7 @@
 Sentry Notes
 ============
 
-Simple plugin for `Sentry <https://github.com/dcramer/sentry/>` that allows for plain text notes to be added to message groups.
+Simple plugin for `Sentry <https://github.com/dcramer/sentry/>`_ that allows for plain text notes to be added to message groups.
 
 Getting It
 ----------
